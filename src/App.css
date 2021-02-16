@@ -1,38 +1,123 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+*{
+  font-family: 'Oswald', sans-serif;
+  color: #D6BD88;
+}
+.Navbar{
+  padding: 20px 0px;
+}
+.Icons a, .logo{
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  color: #D6BD88;
+  font-size: 20px;
+  letter-spacing: 1px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* logo hover */
+.logo:hover{
+  text-decoration: underline;
+  color: #D6BD88;  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.ourProducts, .previewPageTitle{
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  color: #D6BD88;
+  letter-spacing: 1px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Card */
+.card{
+  background: #3C3736;
+}
+.card:hover{
+  cursor: pointer;
+  background: #534d4c;
+}
+.addToCardBtn{
+  border: solid 2px #221F1F;
+  color: #221F1F;
+  background: none;
+  padding: 3px 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.addToCardBtn:hover{
+  color: white;
+  background: #221F1F;
+  border: solid 2px #221F1F;
+}
+
+
+/* Preview */
+.prevAddToCartBtn{
+  border: solid 2px #221F1F;
+  color: white;
+  background: #221F1F;
+  padding: 7px 15px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.prevBackBtn{
+  border: solid 2px #221F1F;
+  color: #221F1F;
+  background: none;
+  padding: 7px 15px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.prevAddToCartBtn:hover{
+  background: grey;
+  color: black;
+  border: solid 2px grey;
+}
+.prevBackBtn:hover{
+  border: solid 2px #221F1F;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+/* Table */
+table{
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+.tableBodyItems{
+  font-weight: 100;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Cart Title */
+.cartTitle{
+  border-bottom: solid 1px #D6BD88;
+  color: #221F1F;
+}
+
+/* Cart Header Background */
+.cartHeaderBg{
+  background: #D6BD88;
+  color: white;
+}
+
+/* Cart, Back to Main Page Button */
+.toMainPage{
+  padding: 20px;
+  font-size: 16px;
+}
+
+/* Cart delete List */
+.deleteList{
+  font-size: 25px;
+  color: rgb(245, 78, 78);
+}
+.deleteList:hover{
+  color: white;
+  cursor: pointer;  
+}
+
+/* Subtotal Font */
+.subTotalFont{
+  font-size: 25px;
+  margin-left: 10px;
 }
