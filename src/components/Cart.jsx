@@ -48,7 +48,7 @@ const Cart = ({ cart, setCart }) => {
     title,
     description
   ) {
-    if (quantity >= 1) {
+    if (quantity >= 2) {
       const newQuantity = quantity - 1;
       const updateTotal = newQuantity * price;
       const filtered = cart.filter((item) => item.id !== id);
