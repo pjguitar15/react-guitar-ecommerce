@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <div className="Navbar">
       <Link to='/'>
-        <a href="./Home.jsx" style={{ position: 'absolute' }} className="mx-5 logo">Phil Guitar Shop</a>
+        <a href="./Home.jsx" style={{ position: 'absolute' }} className="mx-5 logo">Philcob Guitar Shop</a>
       </Link>
       <div className="Icons text-center">
         <a href="#" className="mx-5">GEAR</a>
