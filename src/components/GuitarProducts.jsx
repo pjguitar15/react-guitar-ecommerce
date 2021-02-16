@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Data from "../Data";
-const GuitarProducts = ({ addToCartHandler }) => {
+const GuitarProducts = ({ previewHandler }) => {
   const [isItemsLoaded, setIsItemsLoaded] = useState(false);
   const data = Data;
   useEffect(() => {
@@ -17,7 +17,7 @@ const GuitarProducts = ({ addToCartHandler }) => {
         {data.map((item) => (
           <div
             key={item.id}
-            onClick={() => addToCartHandler(item.title, item.price, item.description, item.img)}
+            onClick={() => previewHandler(item.title, item.price, item.description, item.img)}
             className="itemContainer container mb-4 col-md-6 col-lg-4 col-xl-3"
           >
             <div className="card shadow-sm p-4">
