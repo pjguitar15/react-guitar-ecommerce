@@ -1,26 +1,25 @@
-import React, { useState, useEffect } from "react";
-import Navbar from "./Navbar.jsx";
-import GuitarProducts from "./GuitarProducts.jsx";
-import GuitarPreviewPage from "./GuitarPreviewPage.jsx";
-const Home = ({ cart, setCart }) => {
-  const [isPrevClicked, setIsPrevClicked] = useState(false);
-  const [modalShow, setModalShow] = useState(false);
-  const [preview, setPreview] = useState([]);
+import React, { useState, useEffect } from 'react'
+import Navbar from './Navbar.jsx'
+import GuitarProducts from './GuitarProducts.jsx'
+import GuitarPreviewPage from './GuitarPreviewPage.jsx'
+const Home = ({ cart, setCart, setTotalPrice, totalPrice }) => {
+  const [isPrevClicked, setIsPrevClicked] = useState(false)
+  const [modalShow, setModalShow] = useState(false)
+  const [preview, setPreview] = useState([])
 
   function previewHandler(title, price, description, img) {
-    setIsPrevClicked(true);
+    setIsPrevClicked(true)
     setPreview([
       { title: title, price: price, description: description, img: img },
-    ]);
+    ])
   }
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
-
+  // Why is this handler on this page *facepalm*
   function addToCartHandler(title, price, img, description) {
-    setModalShow(true);
-    const some = cart.some((item) => item.title === title);
+    setModalShow(true)
+
+    // Adds specific item to cart if item is not repeated
+    const some = cart.some((item) => item.title === title)
     if (!some) {
       setCart([
         ...cart,
@@ -33,11 +32,33 @@ const Home = ({ cart, setCart }) => {
           quantity: 1,
           total: price,
         },
-      ]);
+      ])
     }
   }
+
+  // This Updates the Total price
+  useEffect(() => {
+    // Code for adding value to price
+    if (cart.length === 1) {
+      console.log('length is === 1')
+      setTotalPrice(cart[0].price)
+    } else if (cart.length > 1) {
+      const reduce = cart.reduce((acc, val) => {
+        return { price: acc.price + val.price }
+      })
+      setTotalPrice(reduce.price)
+      console.log(reduce.price)
+
+      // console.log(`Total: ${computeTotal}`)
+    }
+  }, [cart])
   return (
     <div>
+      <span>//There are some bugs that needs to be fixed</span>
+      <br />
+      <span>1. Cart quantity increment and Decrement</span>
+      <br />
+      <span>2. Cart Total Price</span>
       {/* is Preview Clicked condition */}
       {!isPrevClicked ? (
         <div>
@@ -58,7 +79,7 @@ const Home = ({ cart, setCart }) => {
         />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
