@@ -54,11 +54,16 @@ const Home = ({ cart, setCart, setTotalPrice, totalPrice }) => {
   }, [cart])
   return (
     <div>
-      <span>//There are some bugs that needs to be fixed</span>
+      <span className='text-secondary'>
+        //There are some bugs that needs to be fixed
+      </span>
       <br />
-      <span>1. Cart quantity increment and Decrement</span>
+      <span className='text-secondary'>
+        1. Cart quantity increment and Decrement
+      </span>
       <br />
-      <span>2. Cart Total Price</span>
+      <span className='text-secondary'>2. Cart Total Price</span>
+
       {/* is Preview Clicked condition */}
       {!isPrevClicked ? (
         <div>

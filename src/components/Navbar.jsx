@@ -3,25 +3,31 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
     <div className='Navbar'>
-      <div className='text-xl-start mb-3'>
-        <Link to='/'>
+      <div className='d-none d-md-block text-md-start mb-3'>
+        <Link to='/' className='text-decoration-none'>
           <span href='./Home.jsx' className='col-sm-12 mx-5 logo'>
             Philcob Guitar Shop
           </span>
         </Link>
       </div>
-      <div className='Icons text-center'>
-        <Link to='/gearpage'>
-          <span className='mx-5'>GEAR</span>
-        </Link>
-        <Link to='/custompage'>
-          <span className='mx-5'>CUSTOM</span>
-        </Link>
-        <Link to='/cart'>
-          <span href='./Cart.jsx' className='mx-5'>
-            CART
-          </span>
-        </Link>
+      <div className='Icons row container col-md-10 col-lg-5 mx-auto'>
+        <div className='col-sm-12 col-md-4 text-center'>
+          <Link to='/gearpage'>
+            <span className='mx-auto'>GEAR</span>
+          </Link>
+        </div>
+        <div className='col-sm-12 col-md-4 text-center'>
+          <Link to='/custompage'>
+            <span className='mx-auto'>CUSTOM</span>
+          </Link>
+        </div>
+        <div className='col-sm-12 col-md-4 text-center'>
+          <Link to='/cart'>
+            <span href='./Cart.jsx' className='mx-auto'>
+              CART
+            </span>
+          </Link>
+        </div>
       </div>
     </div>
   )

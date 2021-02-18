@@ -1,123 +1,122 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
-*{
+* {
   font-family: 'Oswald', sans-serif;
-  color: #D6BD88;
+  color: #d6bd88;
 }
-.Navbar{
+.Navbar {
   padding: 20px 0px;
 }
-.Icons a, .logo{
+.Icons a,
+.logo {
   text-decoration: none;
   font-family: 'Oswald', sans-serif;
-  color: #D6BD88;
+  color: #d6bd88;
   font-size: 20px;
   letter-spacing: 1px;
 }
 
 /* logo hover */
-.logo:hover{
+.logo:hover {
   text-decoration: underline;
-  color: #D6BD88;  
+  color: #d6bd88;
 }
 
-.ourProducts, .previewPageTitle{
+.ourProducts,
+.previewPageTitle {
   text-decoration: none;
   font-family: 'Oswald', sans-serif;
-  color: #D6BD88;
+  color: #d6bd88;
   letter-spacing: 1px;
 }
 
 /* Card */
-.card{
-  background: #3C3736;
+.card {
+  background: #3c3736;
 }
-.card:hover{
+.card:hover {
   cursor: pointer;
   background: #534d4c;
 }
-.addToCardBtn{
-  border: solid 2px #221F1F;
-  color: #221F1F;
+.addToCardBtn {
+  border: solid 2px #221f1f;
+  color: #221f1f;
   background: none;
   padding: 3px 10px;
   font-size: 14px;
   font-weight: 600;
 }
-.addToCardBtn:hover{
+.addToCardBtn:hover {
   color: white;
-  background: #221F1F;
-  border: solid 2px #221F1F;
+  background: #221f1f;
+  border: solid 2px #221f1f;
 }
 
-
 /* Preview */
-.prevAddToCartBtn{
-  border: solid 2px #221F1F;
+.prevAddToCartBtn {
+  border: solid 2px #221f1f;
   color: white;
-  background: #221F1F;
+  background: #221f1f;
   padding: 7px 15px;
   font-size: 14px;
   font-weight: 600;
 }
-.prevBackBtn{
-  border: solid 2px #221F1F;
-  color: #221F1F;
+.prevBackBtn {
+  border: solid 2px #221f1f;
+  color: #221f1f;
   background: none;
   padding: 7px 15px;
   font-size: 14px;
   font-weight: 600;
 }
-.prevAddToCartBtn:hover{
+.prevAddToCartBtn:hover {
   background: grey;
   color: black;
   border: solid 2px grey;
 }
-.prevBackBtn:hover{
-  border: solid 2px #221F1F;
+.prevBackBtn:hover {
+  border: solid 2px #221f1f;
   color: white;
 }
 
-
-
 /* Table */
-table{
+table {
   font-size: 18px;
   letter-spacing: 2px;
 }
-.tableBodyItems{
+.tableBodyItems {
   font-weight: 100;
 }
 
 /* Cart Title */
-.cartTitle{
-  border-bottom: solid 1px #D6BD88;
-  color: #221F1F;
+.cartTitle {
+  border-bottom: solid 1px #d6bd88;
+  color: #221f1f;
 }
 
 /* Cart Header Background */
-.cartHeaderBg{
-  background: #D6BD88;
+.cartHeaderBg {
+  background: #d6bd88;
   color: white;
 }
 
 /* Cart, Back to Main Page Button */
-.toMainPage{
+.toMainPage {
   padding: 20px;
   font-size: 16px;
 }
 
 /* Cart delete List */
-.deleteList{
+.deleteList {
   font-size: 25px;
   color: rgb(245, 78, 78);
 }
-.deleteList:hover{
+.deleteList:hover {
   color: white;
-  cursor: pointer;  
+  cursor: pointer;
 }
 
 /* Subtotal Font */
-.subTotalFont{
+.subTotalFont {
   font-size: 25px;
   margin-left: 10px;
 }
