@@ -11,13 +11,9 @@ const App = () => {
     <Router>
       <GlobalState>
         <Switch>
-          <Route path='/' exact>
-            <Home
-            />
+          <Route path='/' exact component={Home}>
           </Route>
-          <Route path='/cart'>
-            <CartPage
-            />
+          <Route path='/cart' component={CartPage}>
           </Route>
 
         </Switch>

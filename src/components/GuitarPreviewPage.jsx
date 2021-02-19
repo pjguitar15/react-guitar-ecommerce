@@ -9,7 +9,7 @@ import {
 } from './GlobalState'
 const GuitarPreviewPage = () => {
   const [preview, setPreview] = useContext(Preview)
-  const [setIsPrevClicked] = useContext(IsPrevClicked)
+  const [isPrevClicked, setIsPrevClicked] = useContext(IsPrevClicked)
   const addToCartHandler = useContext(AddToCartHandler)
   const [modalShow, setModalShow] = useContext(ModalShow)
   return (
@@ -76,12 +76,7 @@ const GuitarPreviewPage = () => {
           has successfully added to the Cart!
           <div className='mt-4'>
             <Link to='/cart'>
-              <button
-                // onClick={() => setIsPrevClicked(false)}
-                className='btn btn-warnings'
-              >
-                Go to Cart
-              </button>
+              <button className='btn btn-warnings'>Go to Cart</button>
             </Link>
           </div>
         </Modal.Body>
