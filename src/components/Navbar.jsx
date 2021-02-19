@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Cart } from './GlobalState'
 const Navbar = () => {
+  const [cart] = useContext(Cart)
   return (
     <div className='Navbar'>
       <div className='d-none d-md-block text-md-start mb-3'>
@@ -11,20 +13,10 @@ const Navbar = () => {
         </Link>
       </div>
       <div className='Icons row container col-md-10 col-lg-5 mx-auto'>
-        <div className='col-sm-12 col-md-4 text-center'>
-          <Link to='/gearpage'>
-            <span className='mx-auto'>GEAR</span>
-          </Link>
-        </div>
-        <div className='col-sm-12 col-md-4 text-center'>
-          <Link to='/custompage'>
-            <span className='mx-auto'>CUSTOM</span>
-          </Link>
-        </div>
-        <div className='col-sm-12 col-md-4 text-center'>
+        <div className='col-sm-12 col-md-12 text-center'>
           <Link to='/cart'>
             <span href='./Cart.jsx' className='mx-auto'>
-              CART
+              CART ({cart.length})
             </span>
           </Link>
         </div>

@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useContext } from 'react'
 import Data from '../Data'
-const GuitarProducts = ({ previewHandler }) => {
-  const [isItemsLoaded, setIsItemsLoaded] = useState(false)
+import { PreviewHandler, IsItemsLoaded } from './GlobalState'
+const GuitarProducts = () => {
+  const previewHandler = useContext(PreviewHandler)
+  const [isItemsLoaded, setIsItemsLoaded] = useContext(IsItemsLoaded)
   const data = Data
   useEffect(() => {
     setTimeout(() => {

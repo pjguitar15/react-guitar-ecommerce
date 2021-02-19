@@ -1,53 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-const Cart = ({ cart, setCart, totalPrice, setTotalPrice }) => {
-  // Increments quantity to specific item
-  function addQuantityHandler(id, quantity, price) {
-    const newQuantity = quantity + 1
+import {
+  Cart,
+  AddQuantity,
+  SubQuantity,
+  DeleteListHandler,
+  ClearCartHandler,
+} from './GlobalState'
+const CartPage = () => {
+  const addQuantityHandler = useContext(AddQuantity)
+  const subtractQuantityHandler = useContext(SubQuantity)
+  const deleteListHandler = useContext(DeleteListHandler)
+  const clearCartHandler = useContext(ClearCartHandler)
+  const [cart] = useContext(Cart)
 
-    const updateList = cart.map((item) => {
-      if (item.id === id) {
-        return {
-          ...item,
-          quantity: newQuantity,
-          total: newQuantity * item.price,
-        }
-      }
-      return item
-    })
-    setCart([...updateList])
-  }
-
-  // Decrements quantity
-  function subtractQuantityHandler(id, quantity) {
-    const newQuantity = quantity - 1
-    if (newQuantity < 1) {
-      alert('Quantity must atleast be 1 or more')
-    } else {
-      const updateList = cart.map((item) => {
-        if (item.id === id) {
-          return {
-            ...item,
-            quantity: newQuantity,
-            total: newQuantity * item.price,
-          }
-        }
-        return item
-      })
-      setCart([...updateList])
-    }
-  }
-
-  // Deletes specific list
-  function deleteListHandler(id) {
-    const filtered = cart.filter((item) => item.id !== id)
-    setCart(filtered)
-  }
-
-  // Deletes entire cart
-  function clearCartHandler() {
-    setCart([])
-  }
   return (
     <div>
       <div className='cartHeaderBg text-center mb-5'>
@@ -169,4 +135,4 @@ const Cart = ({ cart, setCart, totalPrice, setTotalPrice }) => {
   )
 }
 
-export default Cart
+export default CartPage

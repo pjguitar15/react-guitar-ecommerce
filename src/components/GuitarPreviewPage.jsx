@@ -1,13 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
-const GuitarPreviewPage = ({
-  setIsPrevClicked,
-  preview,
-  addToCartHandler,
-  modalShow,
-  setModalShow,
-}) => {
+import {
+  Preview,
+  AddToCartHandler,
+  IsPrevClicked,
+  ModalShow,
+} from './GlobalState'
+const GuitarPreviewPage = () => {
+  const [preview, setPreview] = useContext(Preview)
+  const [setIsPrevClicked] = useContext(IsPrevClicked)
+  const addToCartHandler = useContext(AddToCartHandler)
+  const [modalShow, setModalShow] = useContext(ModalShow)
   return (
     <div>
       <h1 className='previewPageTitle text-center py-5'>Gretch Guitar</h1>
@@ -72,13 +76,13 @@ const GuitarPreviewPage = ({
           has successfully added to the Cart!
           <div className='mt-4'>
             <Link to='/cart'>
-              <button className='btn btn-warnings'>Go to Cart</button>
+              <button
+                // onClick={() => setIsPrevClicked(false)}
+                className='btn btn-warnings'
+              >
+                Go to Cart
+              </button>
             </Link>
-
-            {/* BUG HERE!!!! Link doesn't let me go to Homepage */}
-            {/* <Link to="/">
-              <button className="btn btn-warnings">Back to shopping</button>
-            </Link> */}
           </div>
         </Modal.Body>
       </Modal>
