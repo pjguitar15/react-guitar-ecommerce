@@ -1,34 +1,41 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 const Cart = ({ cart, setCart, totalPrice, setTotalPrice }) => {
-  // Not sure if this is the fix
-  // const handleUpdate = (index, todo) => {
-  //   const newTodos = [...todos];
-  //   newTodos[index] = todo;
-  //   setTodos(newTodos);
-  // }
-
   // Increments quantity to specific item
-  function addQuantityHandler(id, quantity, img, price, title, description) {
+  function addQuantityHandler(id, quantity, price) {
     const newQuantity = quantity + 1
-    const updateTotal = newQuantity * price
 
-    // removes the item from the list
-    const filtered = cart.filter((item) => item.id !== id)
+    const updateList = cart.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          quantity: newQuantity,
+          total: newQuantity * item.price,
+        }
+      }
+      return item
+    })
+    setCart([...updateList])
+  }
 
-    // recreates the item but appears at the end // which is a bug
-    setCart([
-      ...filtered,
-      {
-        id: id,
-        title: title,
-        price: price,
-        img: img,
-        description: description,
-        quantity: newQuantity,
-        total: updateTotal,
-      },
-    ])
+  // Decrements quantity
+  function subtractQuantityHandler(id, quantity) {
+    const newQuantity = quantity - 1
+    if (newQuantity < 1) {
+      alert('Quantity must atleast be 1 or more')
+    } else {
+      const updateList = cart.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            quantity: newQuantity,
+            total: newQuantity * item.price,
+          }
+        }
+        return item
+      })
+      setCart([...updateList])
+    }
   }
 
   // Deletes specific list
@@ -94,16 +101,13 @@ const Cart = ({ cart, setCart, totalPrice, setTotalPrice }) => {
                   <td className='text-center'>${item.price}</td>
                   <td className='text-center'>
                     <button
-                      // onClick={() =>
-                      //   subtractQuantityHandler(
-                      //     item.id,
-                      //     item.quantity,
-                      //     item.img,
-                      //     item.price,
-                      //     item.title,
-                      //     item.description
-                      //   )
-                      // }
+                      onClick={() =>
+                        subtractQuantityHandler(
+                          item.id,
+                          item.quantity,
+                          item.price
+                        )
+                      }
                       className='prevAddToCartBtn'
                     >
                       -
@@ -150,13 +154,13 @@ const Cart = ({ cart, setCart, totalPrice, setTotalPrice }) => {
             </button>
 
             <h4 className='my-3'>
-              Subtotal: <span className='subTotalFont'>${totalPrice}</span>
+              Subtotal: <span className='subTotalFont'>$FIX THIS</span>
             </h4>
             <h4 className='my-3'>
               Tax: <span className='subTotalFont'>$50</span>
             </h4>
             <h4 className='my-3'>
-              Total: <span className='subTotalFont'>${totalPrice + 50}</span>
+              Total: <span className='subTotalFont'>$0 for now</span>
             </h4>
           </div>
         </>
