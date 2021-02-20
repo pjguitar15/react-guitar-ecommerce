@@ -134,7 +134,12 @@ const CartPage = () => {
             >
               Clear Cart
             </button>
-            <button className='btn btn-light mx-2'>Checkout</button>
+            <button
+              onClick={() => alert('Still working on Checkout page ^_^')}
+              className='btn btn-light mx-2'
+            >
+              Checkout
+            </button>
 
             <h4 className='my-3'>
               Subtotal: <span className='subTotalFont'>${totalPrice}</span>
