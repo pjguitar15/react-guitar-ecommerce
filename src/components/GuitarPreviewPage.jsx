@@ -6,12 +6,27 @@ import {
   AddToCartHandler,
   IsPrevClicked,
   ModalShow,
+  IsItemsLoaded,
 } from './GlobalState'
 const GuitarPreviewPage = () => {
   const [preview, setPreview] = useContext(Preview)
   const [isPrevClicked, setIsPrevClicked] = useContext(IsPrevClicked)
   const addToCartHandler = useContext(AddToCartHandler)
   const [modalShow, setModalShow] = useContext(ModalShow)
+  const [isItemsLoaded, setIsItemsLoaded] = useContext(IsItemsLoaded)
+
+  function backToShopping() {
+    setIsPrevClicked(false)
+    setIsItemsLoaded(false)
+  }
+
+  // similar to the function above but this from the modal so it needs to close itself
+  function modalBackToShopping() {
+    setModalShow(false)
+    setIsPrevClicked(false)
+    setIsItemsLoaded(false)
+  }
+
   return (
     <div>
       <h1 className='previewPageTitle text-center py-5'>Gretch Guitar</h1>
@@ -45,10 +60,7 @@ const GuitarPreviewPage = () => {
                 Add to Cart
               </button>
 
-              <button
-                onClick={() => setIsPrevClicked(false)}
-                className='mt-3 prevBackBtn'
-              >
+              <button onClick={backToShopping} className='mt-3 prevBackBtn'>
                 Back to Shopping
               </button>
             </div>
@@ -75,8 +87,11 @@ const GuitarPreviewPage = () => {
           <br />
           has successfully added to the Cart!
           <div className='mt-4'>
-            <Link to='/cart'>
+            <Link to='/cart' onClick={() => setModalShow(false)}>
               <button className='btn btn-warnings'>Go to Cart</button>
+            </Link>
+            <Link to='/' onClick={modalBackToShopping}>
+              <button className='btn btn-warnings'>Back to shopping</button>
             </Link>
           </div>
         </Modal.Body>

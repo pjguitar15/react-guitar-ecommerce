@@ -5,7 +5,7 @@ const Navbar = () => {
   const [cart] = useContext(Cart)
   return (
     <div className='Navbar'>
-      <div className='d-none d-md-block text-md-start mb-3'>
+      <div className='text-center text-md-start mb-3'>
         <Link to='/' className='text-decoration-none'>
           <span href='./Home.jsx' className='col-sm-12 mx-5 logo'>
             Philcob Guitar Shop

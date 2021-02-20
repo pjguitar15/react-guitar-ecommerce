@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Cart,
@@ -6,6 +6,9 @@ import {
   SubQuantity,
   DeleteListHandler,
   ClearCartHandler,
+  IsPrevClicked,
+  TotalPrice,
+  IsItemsLoaded,
 } from './GlobalState'
 const CartPage = () => {
   const addQuantityHandler = useContext(AddQuantity)
@@ -13,15 +16,28 @@ const CartPage = () => {
   const deleteListHandler = useContext(DeleteListHandler)
   const clearCartHandler = useContext(ClearCartHandler)
   const [cart] = useContext(Cart)
+  const [isPrevClicked, setIsPrevClicked] = useContext(IsPrevClicked)
+  const [totalPrice, setTotalPrice] = useContext(TotalPrice)
+  const [isItemsLoaded, setIsItemsLoaded] = useContext(IsItemsLoaded)
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      const scanCart = cart.map((item) => item.price * item.quantity)
+      const total = scanCart.reduce((acc, val) => acc + val)
+      setTotalPrice(total)
+    }
+  }, [cart])
+
+  function backToMain() {
+    setIsPrevClicked(false)
+    setIsItemsLoaded(false)
+  }
 
   return (
     <div>
       <div className='cartHeaderBg text-center mb-5'>
-        <Link to='/'>
-          <span
-            href='./Cart.jsx'
-            className='py-5 toMainPage mx-5 text-secondary'
-          >
+        <Link to='/' onClick={backToMain}>
+          <span className='py-5 toMainPage mx-5 text-secondary'>
             Back to Main Page (Shopping cart will not be cleared)
           </span>
         </Link>
@@ -118,15 +134,16 @@ const CartPage = () => {
             >
               Clear Cart
             </button>
+            <button className='btn btn-light mx-2'>Checkout</button>
 
             <h4 className='my-3'>
-              Subtotal: <span className='subTotalFont'>$FIX THIS</span>
+              Subtotal: <span className='subTotalFont'>${totalPrice}</span>
             </h4>
             <h4 className='my-3'>
               Tax: <span className='subTotalFont'>$50</span>
             </h4>
             <h4 className='my-3'>
-              Total: <span className='subTotalFont'>$0 for now</span>
+              Total: <span className='subTotalFont'>${totalPrice + 50}</span>
             </h4>
           </div>
         </>

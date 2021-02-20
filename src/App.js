@@ -15,7 +15,6 @@ const App = () => {
           </Route>
           <Route path='/cart' component={CartPage}>
           </Route>
-
         </Switch>
       </GlobalState>
     </Router>
