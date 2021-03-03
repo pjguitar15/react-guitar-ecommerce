@@ -17,7 +17,6 @@ const GuitarProducts = () => {
         items.push(item.data())
       })
       setData(items)
-      console.log(items)
       setIsItemsLoaded(true)
     })
   }
@@ -42,9 +41,9 @@ const GuitarProducts = () => {
 
           <div className='container-fluid row'>
             {/* individual item */}
-            {data.map((item) => (
+            {data.map((item, index) => (
               <div
-                key={item.id}
+                key={index}
                 onClick={() =>
                   previewHandler(
                     item.title,
@@ -59,7 +58,16 @@ const GuitarProducts = () => {
                   <img className='p-2' src={item.img} alt='' />
                   <div className='body text-light p-2 mt-4'>
                     <h5>{item.title}</h5>
-                    <p className='text-secondary'>{item.description}</p>
+                    <p
+                      style={{
+                        fontFamily: 'Open Sans',
+                        fontWeight: '100',
+                        fontSize: '14px',
+                      }}
+                      className='text-light'
+                    >
+                      {item.description}
+                    </p>
                     <button className='mt-3 addToCardBtn'>Add to Cart</button>
                   </div>
                 </div>

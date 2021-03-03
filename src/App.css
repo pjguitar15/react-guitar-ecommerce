@@ -38,12 +38,12 @@
   background: #534d4c;
 }
 .addToCardBtn {
-  border: solid 2px #221f1f;
-  color: #221f1f;
+  border: solid 2px white;
+  color: white;
   background: none;
   padding: 3px 10px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 100;
 }
 .addToCardBtn:hover {
   color: white;

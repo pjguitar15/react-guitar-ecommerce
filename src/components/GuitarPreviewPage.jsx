@@ -31,7 +31,7 @@ const GuitarPreviewPage = () => {
     <div>
       <h1 className='previewPageTitle text-center py-5'>Gretch Guitar</h1>
       {preview.map((item, index) => (
-        <div key={index} className='guitarPreview row mx-auto p-5'>
+        <div key={index} className='guitarPreview row mx-auto p-lg-5'>
           <div className='p-5 col-xl-6 col-lg-12 col-md-12'>
             <img
               style={{ height: 'auto', width: '100%' }}
