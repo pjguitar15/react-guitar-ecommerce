@@ -39,7 +39,7 @@ const GuitarProducts = () => {
         <>
           <h2 className='ourProducts py-5 text-center'>Our Products</h2>
 
-          <div className='container-fluid row'>
+          <div className='row'>
             {/* individual item */}
             {data.map((item, index) => (
               <div
@@ -52,7 +52,7 @@ const GuitarProducts = () => {
                     item.img
                   )
                 }
-                className='itemContainer container mb-4 col-md-6 col-lg-4 col-xl-3'
+                className='itemContainer container mb-4 col-md-6 col-lg-4 col-xl-4'
               >
                 <div className='card shadow-sm p-4'>
                   <img className='p-2' src={item.img} alt='' />

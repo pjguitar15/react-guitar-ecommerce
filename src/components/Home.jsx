@@ -6,7 +6,7 @@ import { IsPrevClicked } from './GlobalState'
 const Home = () => {
   const [isPrevClicked, setIsPrevClicked] = useContext(IsPrevClicked)
   return (
-    <div>
+    <div className='container'>
       {/* is Preview Clicked Ternary condition */}
       {!isPrevClicked ? (
         <div>
